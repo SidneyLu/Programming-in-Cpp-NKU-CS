@@ -68,7 +68,6 @@ void addTwo(int *x) {
 }
 
 
-
 /*函数指针*/
 // 定义四则运算函数
 // int add(int a, int b) { return a + b; } Add之前已经定义过
