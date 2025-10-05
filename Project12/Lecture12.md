@@ -49,7 +49,7 @@ C++通过语言和标准库来支持并发性，在程序中并发的是**执行
 **C++异步支持的完善**
 
 * C++11 future/promise
-* C++17 async、
+* C++17 async
 * C++20 coroutine
 
 ## 三、协程 Coroutine
