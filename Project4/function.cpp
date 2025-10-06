@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 // 1. 函数声明（提前告诉编译器函数结构）
 int add(int a, int b); 
@@ -75,6 +76,22 @@ int subtract(int a, int b) { return a - b; }
 int multiply(int a, int b) { return a * b; }
 int divide(int a, int b) { return a / b; }
 
+
+// 内联函数（inline）：建议编译器在调用处展开，减少函数调用开销
+// 适用于简单、频繁调用的短小函数
+inline int add(int a, int b) {
+    return a + b;
+}
+
+// 静态函数（static）：在类中属于类本身，而非对象，通过类名直接调用
+class MathUtil {
+public:
+    // 静态成员函数：无this指针，不能访问非静态成员
+    static int multiplyS(int a, int b) {
+        return a * b;
+    }
+};
+
 int main() {
     int (*calc_ptr)(int, int); // 函数指针：指向运算函数
     int a = 10, b = 2, choice, result;
@@ -96,5 +113,26 @@ int main() {
     result = calc_ptr(a, b);
     std::cout << "结果：" << result << std::endl;
 
+
+    // 语法糖示例：简化代码的语法，不改变功能但更易读
+    // 1 范围for循环（替代传统for循环的迭代器写法）
+    std::vector<int> nums = {1, 2, 3, 4};
+    std::cout << "数组元素：";
+    for (int num : nums) {  // 范围for语法糖
+        std::cout << num << " ";
+    }
+    std::cout << "\n";
+
+    // 2 auto关键字（自动推导类型，简化声明）
+    auto message = "Hello, 语法糖!";  // 自动推导为const char*
+    std::cout << message << "\n";
+
+    // 3 Lambda表达式（匿名函数，简化函数对象定义）
+    auto square = [](int x) { return x * x; };  // Lambda语法糖
+    std::cout << "5的平方：" << square(5) << "\n";
+
     return 0;
 }
+
+
+ 
